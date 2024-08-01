@@ -24,6 +24,15 @@ const Viewer = () => {
     }
   };
 
+  const handleDownload = () => {
+    const link = document.createElement('a');
+    link.href=pdf;
+    link.download = 'Anbuchelvan-Resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
+
   return (
     <div className="w-full h-screen flex justify-start items-start">
       <div className="w-full h-full">
@@ -44,7 +53,7 @@ const Viewer = () => {
               />
             </div>
             <div>
-              <button className="bg-black text-white px-6 cursor-pointer py-2 rounded">
+              <button className="bg-black text-white px-6 cursor-pointer py-2 rounded" onClick={handleDownload}>
                 Download
               </button>
             </div>
